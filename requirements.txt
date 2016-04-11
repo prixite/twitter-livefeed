@@ -1,0 +1,4 @@
+TwitterAPI==2.3.3
+django==1.9.4
+tornado==4.3
+pika==0.10.0

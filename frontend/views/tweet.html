@@ -1,0 +1,4 @@
+<h1>Live tweets</h1>
+<ul>
+    <li ng-repeat="tweet in tweets | orderBy:'-created_at' | limitTo: 30">{{ tweet.text }}</li>
+</ul>
