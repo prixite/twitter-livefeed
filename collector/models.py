@@ -2,10 +2,8 @@ from __future__ import unicode_literals
 
 import json
 import time
-from urllib.parse import urlparse, urlunparse
 
 from django.db import models
-from django.conf import settings
 
 
 class Tweet(models.Model):
@@ -13,10 +11,6 @@ class Tweet(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.text
-
-    @property
-    def important_words(self):
         return self.text
 
     def to_json(self):

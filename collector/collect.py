@@ -24,9 +24,9 @@ class TweetPublisher():
         else:
             channel = cls.channel = cls.connection.channel()
 
-        return cls.channel.basic_publish(exchange='',
-                                         routing_key='tweets',
-                                         body=tweet.to_json())
+        return channel.basic_publish(exchange='',
+                                     routing_key='tweets',
+                                     body=tweet.to_json())
 
 
 def get_keywords():
@@ -55,7 +55,7 @@ def collect():
         except Exception:
             logger.exception(u"indexing of tweet failed: %s", tweet.text)
         else:
-            logger.info(u"indexing: %s", tweet.text)
+            logger.debug(u"indexing: %s", tweet.text)
             TweetPublisher.publish(tweet)
 
 
